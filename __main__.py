@@ -3,6 +3,7 @@ import sys
 import json
 
 from flask import Flask, request, url_for, jsonify
+from setproctitle import setproctitle
 
 import auto_api
 
@@ -40,4 +41,5 @@ def endpoint_request(api_name=None, api_func=None):
         return report_error('\'{0}\' is not a supported API'.format(api_name.split('.')[1])), 404
     
 if __name__ == '__main__':
+    setproctitle('APISystem')
     app.run(debug=False, port=5001)
