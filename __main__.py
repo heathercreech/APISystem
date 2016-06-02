@@ -25,7 +25,7 @@ def api_directory_request(api_name=None):
     if api_name in auto_api.api_list:
         endpoint_names = list(auto_api.api_functions[api_name].keys())
         endpoint_names.sort()
-        return jsonify({api_name: endpoint_names})
+        return jsonify({api_name.split('.')[1]: endpoint_names})
     else:
         return report_error('\'{0}\' is not a supported API'.format(api_name.split('.')[1])), 404
     
