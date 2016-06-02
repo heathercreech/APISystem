@@ -4,7 +4,7 @@ import inspect
 from .config import cfg
 from . import api_base
 
-about_data = cfg.load_file(__name__)
+about_data = cfg.load_file(__name__, file_format='yaml')
 
 def all():
     return api_base.all(__name__)
